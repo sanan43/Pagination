@@ -1,0 +1,39 @@
+﻿@model List<BasketitemVM>
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Count</th>
+            <th scope="col">TotalPrice</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (BasketitemVM basket in Model)
+        {
+            <tr>
+                <th>@count</th>
+                <td><img src="~/assets/img/@basket.ImagePath" height="=150"/></td>
+                <td>@basket.Name</td>
+                <td>@basket.Price</td>
+                <td>@basket.CategoryName</td>
+                <td>@basket.ServiceCount</td>
+                <tr>(@basket.Price*@basket.ServiceCount)</tr>
+            </tr>
+            count++;
+
+        }
+       
+    </tbody>
+   
+</table>
+<p class="fw-bold">@Model.Sum(s=>s.Price*s.ServiceCount)</p>
+
+

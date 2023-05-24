@@ -1,0 +1,17 @@
+﻿@model List<Service>
+@{
+    ViewData["Title"] = "Service";
+}
+@await Component.InvokeAsync("Slider")
+<section class="container overflow-hidden py-5">
+    <div class="row gx-5 gx-sm-3 gx-lg-5 gy-lg-5 gy-3 pb-3" id="services">
+        @*<partial name="_servicesPartialView" model="Model" />*@
+        @*@Html.Partial("_servicesPartialView");*@
+        @await Component.InvokeAsync("Service")
+    </div>
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-outline-primary" id="btnLoadMore">Load More</a>
+    </div>
+    <input id="dbServiceCount" value="@ViewBag.dbServiceCount" type="hidden"/>
+</section>
+
